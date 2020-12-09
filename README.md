@@ -7,7 +7,7 @@
 
 ## Demo
 
-[![Edit react-use-object-state](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-use-object-state-go48q?fontsize=14)
+[![Edit react-use-object-state](https://codesandbox.io/static/img/play-codesandbox.svg)](https://codesandbox.io/s/react-use-object-state-igj9r?file=/src/App.tsx)
 
 ## Install
 
