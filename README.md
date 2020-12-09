@@ -13,7 +13,9 @@
 
 ```bash
 npm install --save react-use-object-state
+```
 or
+```bash
 yarn add react-use-object-state
 ```
 
