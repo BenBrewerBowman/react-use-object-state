@@ -14,14 +14,16 @@
 ```bash
 npm install --save react-use-object-state
 ```
+
 or
+
 ```bash
 yarn add react-use-object-state
 ```
 
 ## Idea
 
-How often do you find yourself creating a boolean useState flag? How often do you have a stateful array and implement the same manipulation methods (slice, push, pop, shift, etc) to modify the state? How about a generic counter state 1,2,3... What about pagination state, or even anchored elements state?
+How often do you find yourself creating a boolean `useState` flag? How often do you have a stateful array and implement the same manipulation methods (`slice`, `push`, `pop`, `shift`, etc) to modify the state? How about a generic counter state `1,2,3...` What about pagination state, or even anchored elements state?
 
 What about memoization with these stateful object patterns? If you want to employ memoization, every stateful object needs to have any or all state updater methods memoized. This can both muddy up your code with lots of useCallbacks and useMemos, and even introduce bugs with missing or constantly changing dependencies.
 
@@ -256,18 +258,18 @@ const PaginationExample = () => {
 };
 ```
 
-| Name           | Type                                                                                 | Default | Description                                                  |
-| :------------- | :----------------------------------------------------------------------------------- | :------ | :----------------------------------------------------------- |
-| page           | Number                                                                               |         | Current page number                                          |
-| rowsPerPage    | Number                                                                               |         | Number of rows to show per page.                             |
-| order          | 'asc', 'desc', undefined                                                             |         | Order page data ascending or descending                      |
-| orderBy        | String, undefined                                                                    |         | Field, column, or key by which to order data                 |
-|                |                                                                                      |         |                                                 
-| setPage        | Function(page: Number): void                                                         |         | Sets the page number                                         |
-| setRowsPerPage | Function(rowsPerPage: Number): void                                                  |         | Sets the rows per page                                       |
-| sort           | Function({order: 'asc' or 'desc' or undefined, orderBy: String or undefined): void   |         | Sorts the pagination ascending or descending by a field      |
-| nextPage       | Function(): void                                                                     |         | Increments the page number by 1                              |
-| previousPage   | Function(): void                                                                     |         | Decrements the page number by 1 (min 0)                      |
+| Name           | Type                                                                               | Default | Description                                             |
+| :------------- | :--------------------------------------------------------------------------------- | :------ | :------------------------------------------------------ |
+| page           | Number                                                                             |         | Current page number                                     |
+| rowsPerPage    | Number                                                                             |         | Number of rows to show per page.                        |
+| order          | 'asc', 'desc', undefined                                                           |         | Order page data ascending or descending                 |
+| orderBy        | String, undefined                                                                  |         | Field, column, or key by which to order data            |
+|                |                                                                                    |         |
+| setPage        | Function(page: Number): void                                                       |         | Sets the page number                                    |
+| setRowsPerPage | Function(rowsPerPage: Number): void                                                |         | Sets the rows per page                                  |
+| sort           | Function({order: 'asc' or 'desc' or undefined, orderBy: String or undefined): void |         | Sorts the pagination ascending or descending by a field |
+| nextPage       | Function(): void                                                                   |         | Increments the page number by 1                         |
+| previousPage   | Function(): void                                                                   |         | Decrements the page number by 1 (min 0)                 |
 
 ## Creating your own state objects
 
@@ -290,7 +292,7 @@ import { useObjectState } from "react-use-object-state";
 export const booleanStateFactory = (setState) => ({
   setTrue: () => setState(true),
   setFalse: () => setState(false),
-  toggle: () => setState(state => !state),
+  toggle: () => setState((state) => !state),
 });
 
 export const useBooleanState = (initialState) =>
