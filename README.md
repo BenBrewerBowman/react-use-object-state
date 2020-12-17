@@ -41,7 +41,7 @@ What about memoization with these stateful object patterns? If you want to emplo
 
 ## useBooleanState
 
-State for boolean values (T or F states)
+> State for Booleans
 
 #### Example
 
@@ -77,7 +77,7 @@ export default BooleanExample;
 
 ## useArrayState
 
-State for arrays (array states)
+> State for Arrays
 
 ```tsx
 import React from "react";
@@ -124,7 +124,7 @@ export default ArrayExample;
 
 ## useUniqueArrayState
 
-State for unique arrays (sets)
+> State for Unique Arrays (Sets)
 
 | Name     | Type                                  | Default | Description                                                                                       |
 | :------- | :------------------------------------ | :------ | :------------------------------------------------------------------------------------------------ |
@@ -144,9 +144,48 @@ State for unique arrays (sets)
 | upsertAt | Function(val: T, index: number): void |         | Removes value from beginning of array (Does nothing out of bounds or for nonunique vals)          |
 | deleteAt | Function(index: number): void         |         | Removes value from beginning of array (Does nothing out of bounds)                                |
 
+## useMapState
+
+> State for Maps
+
+```tsx
+import React from "react";
+import { useMapState } from "react-use-object-state";
+
+const CounterExample = () => {
+  const map = useMapState();
+
+  return (
+    <div>
+      <button onClick={map.clear} >
+        Clear
+      </Button>
+      <button onClick={() => map.set('key', 'val')} >
+        Set key val
+      </Button>
+      <button onClick={() => map.delete('key')} >
+        Delete key val
+      </Button>
+      <h4>
+        Value of key: {map.state.get('key')}
+      </h4>
+    </div>
+  );
+};
+```
+
+| Name        | Type                          | Default | Description                                     |
+| :---------- | :---------------------------- | :------ | :---------------------------------------------- |
+| state       | Map<K,V>                      |         | State of the Map object                         |
+| setState    | (map: Map<K,V>) => void       |         | Set the state of the Map Object.                |
+|             |                               |         |
+| clear       | VoidFunction                  |         | Clears the Map state                            |
+| set         | Function(min: Number): void   |         | Sets key value pair for Map state               |
+| delete      | Function(max: Number): void   |         | Deletes key value pair from Map state           |
+
 ## useCounterState
 
-State for counters
+> State for Counters
 
 ```tsx
 import React from "react";
@@ -190,7 +229,7 @@ const CounterExample = () => {
 
 ## useAnchorElState
 
-State for anchor elements (ie a button that opens a menu in its location)
+> State for Anchored Elements (ie a button that opens a menu in its location)
 
 ```tsx
 import React from "react";
@@ -229,7 +268,7 @@ const AnchorElExample = () => {
 
 ## usePaginationState
 
-State for pagination
+> State for Pagination
 
 ```tsx
 import React from "react";
