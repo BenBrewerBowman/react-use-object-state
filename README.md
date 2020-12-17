@@ -34,6 +34,7 @@ What about memoization with these stateful object patterns? If you want to emplo
 - [Boolean](#usebooleanstate)
 - [Array](#usearraystate)
 - [Unique Array (Set)](#useuniquearraystate)
+- [Map](#usemapstate)
 - [Counter](#usecounterstate)
 - [Anchor El](#useanchorelstate)
 - [Pagination](#usepaginationstate)
