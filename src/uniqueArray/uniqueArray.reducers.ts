@@ -1,16 +1,16 @@
-import { 
+import {
   insertAt as arrayInsertAt,
   push as arrayPush,
   unshift as arrayUnshift,
-  upsertAt as arrayUpsertAt
-} from '../array/array.reducers';
+  upsertAt as arrayUpsertAt,
+} from "../array/array.reducers";
 
 const findIndex = <T>(arr: T[], value: T) =>
-    arr.findIndex(element => JSON.stringify(element) === JSON.stringify(value));
+  arr.findIndex((element) => JSON.stringify(element) === JSON.stringify(value));
 
 export const toggle = <T>(values: T[]) => (state: T[]) => {
-  const stateCopy = [...state];
-  values.forEach(value => {
+  const stateCopy = state.slice();
+  values.forEach((value) => {
     const index = findIndex(stateCopy, value);
     if (index >= 0) {
       stateCopy.splice(index, 1);
@@ -23,7 +23,7 @@ export const toggle = <T>(values: T[]) => (state: T[]) => {
 
 export const push = <T>(values: T[]) => (state: T[]) => {
   const uniqueNewVals: T[] = [];
-  values.forEach(value => {
+  values.forEach((value) => {
     if (findIndex(state, value) < 0) {
       uniqueNewVals.push(value);
     }
@@ -33,7 +33,7 @@ export const push = <T>(values: T[]) => (state: T[]) => {
 
 export const unshift = <T>(values: T[]) => (state: T[]) => {
   const uniqueNewVals: T[] = [];
-  values.forEach(value => {
+  values.forEach((value) => {
     if (findIndex(state, value) < 0) {
       uniqueNewVals.push(value);
     }
@@ -41,7 +41,7 @@ export const unshift = <T>(values: T[]) => (state: T[]) => {
   return arrayUnshift(uniqueNewVals)(state);
 };
 
-export const upsertAt = <T>(val: T, index: number) => (state:T[]) => {
+export const upsertAt = <T>(val: T, index: number) => (state: T[]) => {
   const indexOfVal = findIndex(state, val);
   if (indexOfVal < 0) {
     return arrayUpsertAt<T>(val, index)(state);
